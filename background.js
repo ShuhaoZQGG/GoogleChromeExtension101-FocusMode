@@ -7,7 +7,7 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.runtime.onClicked.addListener(async (tab) => {
+chrome.action.onClicked.addListener(async (tab) => {
   if (tab.url.startsWith(extensions) || tab.url.startsWith(webstore)) {
     // Retrieve the action badge to check if the extension is "ON" or "OFF"
     const prevState = await chrome.action.getBadgeText({ tabId: tab.id});
